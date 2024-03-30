@@ -44,9 +44,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Send form data to the server using fetch API
         fetch('/register', {
-            method: 'POST',
-            body: formData
-        })
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        id: formData.get('id'),
+        fullName: formData.get('fullName'),
+        address: formData.get('address'),
+        status: formData.get('status'),
+        fee: fee
+    })
+})
         .then(response => response.json()) // Parse the JSON response
         .then(data => {
             // Display confirmation message
