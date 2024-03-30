@@ -13,9 +13,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.json());
+// Parse application/json
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 
 
 app.get('/', (req, res) => {
